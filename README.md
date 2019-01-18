@@ -75,7 +75,21 @@
 * 无人驾驶
 * 测试 
 
-### 11.涉及的开发工具
+
+### 11.涉及的数据库和缓存器
+
+* memcache
+* redis
+* mongoDB
+* rocksDB
+* levelDB
+* mysql
+* db2
+* oracle
+* sqlite
+* sql server
+
+### 12.涉及的开发工具
 
 * VS
 * Eclipse
