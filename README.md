@@ -11,7 +11,7 @@
 * Go
 * Python
 * PHP
-* Objiect-C
+* Object-C
 * swift
 * Javascript
 * Es5
