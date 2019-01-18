@@ -11,13 +11,15 @@
 * Go
 * Python
 * PHP
+* Objiect-C
+* swift
 * Javascript
 * Es5
 * Es6
 * H5
 * Css3
 
-### 2.涉及到的技术框架和库包括
+### 2.涉及到的技术框架和库
 
 #### 1.C/C++
 
@@ -35,29 +37,56 @@
 
 #### 3.PHP
 
-* smarty
 * thinkPHP
+* Laravel
+* Yii
 
 ### 4.Go
 
-* Docker
+* beego
 
 ### 4.Python
 
+* Django
+
 ### 5.设计模式
 
-### 3.涉及的领域
+### 6.安卓
+
+### 7.IOS
+
+### 8.Docker
+
+### 9.Ngix
+
+### 10.涉及的领域
 
 * 区块链
-* 智能化合约
+* 智能合约
 * 密码学
 * 共识算法
+* 钱包
 * 算法
-* 测试 
 * 金融行业
 * 硬件研发
 * 网络编程
 * 中间件研发
 * 人工只能
 * 无人驾驶
+* 测试 
+
+### 11.涉及的开发工具
+
+* VS
+* Eclipse
+* Qt creator
+* Webstorm
+* Goland
+* idea 
+* ZendStudio
+* subline
+
+## 二.关于最美编程
+
+
 
