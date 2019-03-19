@@ -3,11 +3,18 @@
 
 ### 一.冒泡排序
 
+冒泡排序是一种效率低下的排序方法，在数据规模很小时，可以采用。数据规模比较大时，最好用其它排序方法。
+
+冒泡排序是一种稳定的排序算法
+
+冒泡排序的效率：O（n²）
+
+冒泡排序原理图：
 .： 
     ![.： 
 ](https://github.com/guoshijiang/most-beautiful-programming/blob/master/Image/1.png)
 
-Python 代码实现
+冒泡排序 Python 代码实现
 
     #!/usr/bin/env python
     # coding:utf-8
