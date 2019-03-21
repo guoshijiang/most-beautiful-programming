@@ -160,7 +160,114 @@ MySql数据库的索引方式有普通索引，唯一索引，主键索引，组
 
 ### 七.redis,kafka,docker,bizflow在项目中主要作用是什么
 
-### 八.写个nodejs文件查询查看功能
+#### 1.redis
+
+redis是一种支持Key-Value等多种数据结构的存储系统。可用于缓存、事件发布或订阅、高速队列等场景。该数据库使用ANSI C语言编写，支持网络，提供字符串、哈希、列表、队列、集合结构直接存取，基于内存，可持久化。
+
+##### redis的数据类型
+
+Redis一共支持五种数据类：string(字符串)、hash(哈希)、list(列表)、set(集合)和zset（sorted set 有序集合）。
+
+##### redis在项目中的应用
+
+1、会话缓存（最常用）
+2、消息队列，比如支付
+3、活动排行榜或计数
+4、发布、订阅消息（消息通知）
+5、商品列表、评论列表等
+
+#### 2.kafka
+
+Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 kafka 的定义：一个分布式发布-订阅消息传递系统。 它最初由LinkedIn公司开发，Linkedin于2010年贡献给了Apache基金会并成为顶级开源项目。Kafka是一种快速、可扩展的、设计内在就是分布式的，分区的和可复制的提交日志服务。
+
+##### Kafka基本架构
+
+它的架构包括以下组件：
+1、话题（Topic）：是特定类型的消息流。消息是字节的有效负载（Payload），话题是消息的分类名或种子（Feed）名；
+2、生产者（Producer）：是能够发布消息到话题的任何对象；
+3、服务代理（Broker）：已发布的消息保存在一组服务器中，它们被称为代理（Broker）或Kafka集群；
+4、消费者（Consumer）：可以订阅一个或多个话题，并从Broker拉数据，从而消费这些已发布的消息；
+
+##### Kafka主要应用
+
+（1）日志收集：一个公司可以用Kafka可以收集各种服务的log，通过kafka以统一接口服务的方式开放给各种consumer，例如Hadoop、Hbase、Solr等；
+（2）消息系统：解耦和生产者和消费者、缓存消息等；
+（3）用户活动跟踪：Kafka经常被用来记录web用户或者app用户的各种活动，如浏览网页、搜索、点击等活动，这些活动信息被各个服务器发布到kafka的topic中，然后订阅者通过订阅这些topic来做实时的监控分析，或者装载到Hadoop、数据仓库中做离线分析和挖掘；
+（4）运营指标：Kafka也经常用来记录运营监控数据。包括收集各种分布式应用的数据，生产各种操作的集中反馈，比如报警和报告；
+（5）流式处理：比如spark streaming和storm；
+（6）事件源；
+
+
+#### 3.Docker
+
+Docker是唯一一能够应对整个混合云中的每个应用的提供集装箱服务的平台。 现在很多企业面临着数字化转型的压力，受到现有应用程序和基础架构的制约，很难有很好的发展。而Docker合理利用日益多样化的云，数据中心和应用程序架构产品组合。 真正实现了应用程序和基础架构与开发人员和IT操作员之间的真正独立性，以释放他们的潜力并创建更好的协作和创新模式。
+
+Docker是开发，运维和运行应用程序的开放平台。 Docker使您能够将应用程序与基础架构分开，以便您可以快速交付软件。 使用Docker，您可以像管理应用程序一样管理基础架构。 通过利用Docker的优点，快速进行运维，测试和部署代码，可以明显地缩短编写代码，以及在生产环境中运行代码之间的延迟的时间。真正实现与平台解耦合。
+
+##### docker的主要应用
+
+部署项目，一次部署，多平台可用
+
+#### 4.bizflow
+BizFlow 是一款优秀的工作流产品，整套产品包含工作流引擎，基于B/S的工作台，基于Eclipse的流程设计器，以及若干的扩展适配器可以让我们直接与其他现有应用平台无缝集成，而其JAVA/SOA的构建特性可以完全满足我们的跨平台，跨开发语言的需求。
+
+分支实现是每个工作流必须的功能，BizFlow使用BPMN标准来描述流程，所以我们基本上看符号就知道某一个Activity代表何种业务规则，BizFlow的分支具体分为四种。
+
+###### XOR Gateway（也称为Exclusive Gateway或单一分支）
+
+XOR Gateway 的只允许一进一出，主要用来满足以下的业务需求：
+
+1、多个流出路径，但仅有一个路径会被触发。当没有一个路径满足条件时，XOR Gateway可以指定触发一个默认路径。
+2、多个流入路径，但仅有一个路径会被触发，最后会有一个路径流出。
+
+###### OR Gateway （也称为Inclusive Gateway或多路分支）
+
+OR Gateway 允许多进多出，主要用来满足以下的业务需求：
+
+1、分离——流出时会被分离成满足条件的若干路径
+2、合并——可将多个满足条件的流入路径合并为一个，OR Gateway 并不需要等待所有流入路径都满足条件，只要满足指定数量的条件（比如两个路径满足条件时）就可继续进行下面的路径。
+
+###### AND Gateway（也称为Parallel Gateway或全部分支）
+
+AND Gateway 允许多进多出，主要用来满足以下的业务需求：
+
+1、分离——AND Gateway不需要设置满足条件，流出时自动被分离成若干路径
+2、合并——AND Gateway会等待所有流入路径都满足条件后才将多个流入路径合并为一个
+
+###### Complex Gateway
+
+BPMN还包含了一个Complex Gateway定义，以满足之前的分支活动都无法满足的需求。
+
+##### bizflow作用
+
+Bizflow的工作流组件开发与功能测试
+
+
+### 八.nodejs实现查找当前目录下得文件功能
+
+    var fs = require('fs');
+    var join = require('path').join;
+
+    function getJsonFiles(jsonPath){
+        let jsonFiles = [];
+        function findJsonFile(path){
+            let files = fs.readdirSync(path);
+            files.forEach(function (item, index) {
+                let fPath = join(path,item);
+                let stat = fs.statSync(fPath);
+                if(stat.isDirectory() === true) {
+                    findJsonFile(fPath);
+                }
+                if (stat.isFile() === true) { 
+                  jsonFiles.push(fPath);
+                }
+            });
+        }
+        findJsonFile(jsonPath);
+        console.log(jsonFiles);
+    }
+
+    getJsonFiles("test");
 
 ### 九.http跟https区别
 
