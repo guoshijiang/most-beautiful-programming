@@ -529,7 +529,7 @@ in 走索引了
 
 .： 
     ![.： 
-](https://github.com/guoshijiang/most-beautiful-programming/blob/master/Image/1.png)
+](https://github.com/guoshijiang/most-beautiful-programming/blob/master/Image/2.png)
 
 
 使用后序遍历方式对语法树进行遍历，可以得出其值; 
