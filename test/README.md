@@ -266,9 +266,56 @@ b) 目前少数个人银行的专业版是这种做法，具体证书可能是�
 
 ### 十二.代码实现读文件中某域名平均响应时间
 
-### 十三.代码实现两个有序列表的中间位置查询
+### 十三. python代码实现两个有序列表的中间位置查询
+
+    #!usr/bin/env python
+    #encoding:utf-8
+
+    import random
+    def random_nums_genetor(max_value=1000, total=100):
+      num_list=[]
+      for i in range(total):
+        num_list.append(random.randint(1,max_value))
+      return num_list
+    def find_two_list_mid_num(num_list1,num_list2):
+      length1=len(num_list1)
+      length2=len(num_list2)
+      total=length1+length2
+      if total%2==0:
+        half=total/2-1
+      else:
+        half=total/2
+      res_list=[]
+      while len(num_list1) and len(num_list2):
+        if num_list1[0]<num_list2[0]:
+          res_list.append(num_list1.pop(0))
+        else:
+          res_list.append(num_list2.pop(0))
+      if len(num_list1):
+        res_list+=num_list1
+      elif len(num_list2):
+        res_list+=num_list2
+      #print res_list
+      print res_list[half]
+      return res_list
+    if __name__ == '__main__':
+      print "test result："
+      num_list1=[1,2,5,7,12,45,67,100]
+      num_list2=[11,34,77,90]
+      res_list=find_two_list_mid_num(num_list1,num_list2)
+      print res_list[5]
+      print '--------------------------------------------------------'
+      num_list1=random_nums_genetor(max_value=1000, total=10)
+      num_list2=random_nums_genetor(max_value=100, total=7)
+      res_list=find_two_list_mid_num(num_list1, num_list2)
+      print res_list[8]
+
 
 ### 十四.linux命令，读日志文件中10万行记录，查询某字符串 重复出现次数最多的前三
+
+    cat log.log | sort | uniq -c | sort -k1,1nr | head -3
+
+
 
 ### 十五.清空表数据的命令，in是不是走索引
 
